@@ -1,0 +1,67 @@
+///***.......      In the name of Allah     ......***////
+/*...Free Palestine..........Free Al_Aqsa.....*/
+#include<bits/stdc++.h>
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+using namespace std;
+typedef long long ll;
+#define F first
+#define S second
+#define yes cout<<"YES"<<endl
+#define no  cout<<"NO"<<endl
+#define pb push_back
+template<typename T>
+using ordered_set = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;
+template<typename T>
+using ordered_multiset= tree<T,null_type,less_equal<T>,rb_tree_tag,tree_order_statistics_node_update>;
+#define tt int t;cin>>t;while(t--)
+#define all(x) x.begin(),x.end()
+#define pii pair<int,int>
+#define f(i, n)     for (ll i = 0; i < n; i++)
+#define ia(a, n)     ll a[n];f(i, n) cin >> a[i]
+#define iv(v, n)     vector<ll> v(n);f(i, n) cin >> v[i]
+#define srt(x) sort(x.begin(),x.end())
+#define rsrt(x) sort(x.rbegin(),x.rend())
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n' 
+const int n=1e8;
+bool isprime[n];
+void solve()
+{
+    for(int i=2;i<n;i++)isprime[i]=true;
+    vector<int>primes={2};
+    for(int i=3;i*i<n;i+=2)
+    {
+        if(isprime[i])
+        {
+            for(int j=i*i;j<n;j+=i*2)
+        {
+            isprime[j]=false;
+        }
+
+        }
+        
+    }
+    for(int i=3;i<=n;i+=2)
+    {
+        if(isprime[i])primes.pb(i);
+
+    }
+    for(int i=0;i<(int)primes.size();i+=100)
+    {
+        cout<<primes[i]<<endl;
+    }
+
+    
+ 
+ 
+}
+signed main()
+{
+ optimize();
+solve();
+
+  
+ 
+}
